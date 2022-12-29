@@ -20,8 +20,8 @@ export default function Login({ navigation }: any) {
   const [isLogged, setIsLogged] = React.useState("loading");
   const [error, setError] = React.useState("");
 
-  const handleLogin = async () => {
-    const token = await login({ email, password });
+  const handleLogin: () => Promise<void> = async (): Promise<void> => {
+    const token: any = await login({ email, password });
     if (token) {
       try {
         await AsyncStorage.setItem("token", token);
@@ -30,14 +30,14 @@ export default function Login({ navigation }: any) {
     }
   };
 
-  const handleLogOut = async () => {
+  const handleLogOut: () => Promise<void> = async (): Promise<void> => {
     await AsyncStorage.removeItem("token");
     setIsLogged("false");
   };
 
-  useLayoutEffect(() => {
-    const getToken = async () => {
-      const token = await AsyncStorage.getItem("token");
+  useLayoutEffect((): void => {
+    const getToken: () => Promise<void> = async (): Promise<void> => {
+      const token: string | null = await AsyncStorage.getItem("token");
       if (token) {
         navigation.navigate("App");
         setIsLogged("true");
@@ -84,7 +84,7 @@ export default function Login({ navigation }: any) {
           <View style={styles.registerArea}>
             <Text style={styles.registerText}>Ainda não está registrado?</Text>
             <TouchableOpacity
-              onPress={() => navigation.navigate("Register")}
+              onPress={(): void => navigation.navigate("Register")}
               style={styles.buttonRegister}
             >
               <Text style={styles.buttonRegisterText}>Registre-se</Text>
