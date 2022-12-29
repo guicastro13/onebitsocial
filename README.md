@@ -9,6 +9,6 @@
   </span>
 
 
-Este é um projeto colaborativo entre os alunos da One Bit Code.
+Este é um projeto colaborativo entre os alunos da One Bit Code!!!!.
 
 Aqui ficara a parte do client.
